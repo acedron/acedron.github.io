@@ -1,0 +1,176 @@
+/*
+ * Palette
+ */
+
+$p-50:  #e4f5ed;
+$p-100: #bfe5d1;
+$p-200: #95d4b5;
+$p-300: #67c498;
+$p-400: #41b882;
+$p-500: #00ac6d;
+$p-600: #009d62;
+$p-700: #008a56;
+$p-800: #00794a;
+$p-900: #005a34;
+
+$s-50:  #f9e7f0;
+$s-100: #f1c2db;
+$s-200: #eb9bc3;
+$s-300: #e676ab;
+$s-400: #e25c98;
+$s-500: #e14985;
+$s-600: #cf457f;
+$s-700: #b84177;
+$s-800: #a23d6f;
+$s-900: #7a3660;
+
+$bg-light:  #fffefe;
+$bg-dark:   #111614;
+$dark-00dp: #111614;
+$dark-01dp: #1d2220;
+$dark-02dp: #222724;
+$dark-03dp: #242927;
+$dark-04dp: #262b29;
+$dark-06dp: #2b302e;
+$dark-08dp: #2d3230;
+$dark-12dp: #323735;
+$dark-16dp: #353937;
+$dark-24dp: #373c3a;
+
+$text-black: #111614;
+$text-white: #fffefe;
+
+$text-black-high: rgba(17, 22, 20, 0.87);
+$text-black-medium: rgba(17, 22, 20, 0.60);
+$text-black-disabled: rgba(17, 22, 20, 0.38);
+$text-white-high: rgba(255, 254, 254, 0.87);
+$text-white-medium: rgba(255, 254, 254, 0.87);
+$text-white-disabled: rgba(255, 254, 254, 0.87);
+
+$shadow: rgba(0, 0, 0, 0.35);
+
+/*
+ * Classes
+ */
+
+/* Themed */
+$default-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+.default-transition { transition: $default-transition; }
+
+/* Background Colors */
+.bg-light { background-color: $bg-light; }
+.bg-dark { background-color: $bg-dark; }
+
+.bg { background-color: $bg-light; }
+.dark .bg { background-color: $bg-dark; }
+.bg.dark { background-color: $bg-dark; }
+
+.bg-p-50  { background-color: $p-50; }
+.bg-p-100 { background-color: $p-100; }
+.bg-p-200 { background-color: $p-200; }
+.bg-p-300 { background-color: $p-300; }
+.bg-p-400 { background-color: $p-400; }
+.bg-p-500 { background-color: $p-500; }
+.bg-p-600 { background-color: $p-600; }
+.bg-p-700 { background-color: $p-700; }
+.bg-p-800 { background-color: $p-800; }
+.bg-p-900 { background-color: $p-900; }
+
+.bg-s-50  { background-color: $s-50; }
+.bg-s-100 { background-color: $s-100; }
+.bg-s-200 { background-color: $s-200; }
+.bg-s-300 { background-color: $s-300; }
+.bg-s-400 { background-color: $s-400; }
+.bg-s-500 { background-color: $s-500; }
+.bg-s-600 { background-color: $s-600; }
+.bg-s-700 { background-color: $s-700; }
+.bg-s-800 { background-color: $s-800; }
+.bg-s-900 { background-color: $s-900; }
+
+.bg-none { background: none; }
+
+/* Foreground Colors */
+.fg-p-50  { color: $p-50; }
+.fg-p-100 { color: $p-100; }
+.fg-p-200 { color: $p-200; }
+.fg-p-300 { color: $p-300; }
+.fg-p-400 { color: $p-400; }
+.fg-p-500 { color: $p-500; }
+.fg-p-600 { color: $p-600; }
+.fg-p-700 { color: $p-700; }
+.fg-p-800 { color: $p-800; }
+.fg-p-900 { color: $p-900; }
+
+.fg-s-50  { color: $s-50; }
+.fg-s-100 { color: $s-100; }
+.fg-s-200 { color: $s-200; }
+.fg-s-300 { color: $s-300; }
+.fg-s-400 { color: $s-400; }
+.fg-s-500 { color: $s-500; }
+.fg-s-600 { color: $s-600; }
+.fg-s-700 { color: $s-700; }
+.fg-s-800 { color: $s-800; }
+.fg-s-900 { color: $s-900; }
+
+/* Text Classes */
+.text-black { color: $text-black; }
+.text-white { color: $text-white; }
+
+.text-black-high { color: $text-black-high; }
+.text-black-medium { color: $text-black-medium; }
+.text-black-disabled { color: $text-black-disabled; }
+.text-white-high { color: $text-white-high; }
+.text-white-medium { color: $text-white-medium; }
+.text-white-disabled { color: $text-white-disabled; }
+
+.text-high { color: $text-black-high; }
+.text-medium { color: $text-black-medium; }
+.text-disabled { color: $text-black-disabled; }
+.dark .text-high { color: $text-white-high; }
+.dark .text-medium { color: $text-white-medium; }
+.dark .text-disabled { color: $text-white-disabled; }
+
+.text-primary { color: $p-700; }
+.text-secondary { color: $s-700; }
+.dark .text-primary { color: $p-100; }
+.dark .text-secondary { color: $s-100; }
+
+.dark .text-primary-if-dark { color: $p-100; }
+.dark .text-secondary-if-dark { color: $s-100; }
+.dark .text-primary-dark-if-dark { color: $p-700; }
+.dark .text-secondary-dark-if-dark { color: $s-700; }
+
+.text-shadow { text-shadow: 0 2px 5px $shadow; }
+
+/* Elevations with only shadows */
+.dp-01-shadow { box-shadow: 0 2px 5px 0 $shadow; }
+.dp-02-shadow { box-shadow: 0 4px 7px 0 $shadow; }
+.dp-03-shadow { box-shadow: 0 6px 9px 0 $shadow; }
+.dp-04-shadow { box-shadow: 0 8px 11px 0 $shadow; }
+.dp-06-shadow { box-shadow: 2px 12px 15px 0 $shadow; }
+.dp-08-shadow { box-shadow: 4px 16px 19px 0 $shadow; }
+.dp-12-shadow { box-shadow: 6px 24px 27px 0 $shadow; }
+.dp-16-shadow { box-shadow: 8px 32px 35px 0 $shadow; }
+.dp-24-shadow { box-shadow: 12px 48px 51px 0 $shadow; }
+
+/* Elevations */
+.dp-01 { @extend .dp-01-shadow; }
+.dp-02 { @extend .dp-02-shadow; }
+.dp-03 { @extend .dp-03-shadow; }
+.dp-04 { @extend .dp-04-shadow; }
+.dp-06 { @extend .dp-06-shadow; }
+.dp-08 { @extend .dp-08-shadow; }
+.dp-12 { @extend .dp-12-shadow; }
+.dp-16 { @extend .dp-16-shadow; }
+.dp-24 { @extend .dp-24-shadow; }
+
+.dark .dp-00 { background-color: $dark-00dp; }
+.dark .dp-01 { background-color: $dark-01dp; }
+.dark .dp-02 { background-color: $dark-02dp; }
+.dark .dp-03 { background-color: $dark-03dp; }
+.dark .dp-04 { background-color: $dark-04dp; }
+.dark .dp-06 { background-color: $dark-06dp; }
+.dark .dp-08 { background-color: $dark-08dp; }
+.dark .dp-12 { background-color: $dark-12dp; }
+.dark .dp-16 { background-color: $dark-16dp; }
+.dark .dp-24 { background-color: $dark-24dp; }
