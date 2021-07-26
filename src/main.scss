@@ -54,8 +54,11 @@ $shadow: rgba(0, 0, 0, 0.35);
  */
 
 /* Themed */
-$default-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+$default-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
 .default-transition { transition: $default-transition; }
+
+.tr-button-scale:hover { transform: scale(1.05); }
+.tr-button-scale:active { transform: scale(0.95); }
 
 /* Background Colors */
 .bg-light { background-color: $bg-light; }
@@ -111,6 +114,10 @@ $default-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out
 .fg-s-700 { color: $s-700; }
 .fg-s-800 { color: $s-800; }
 .fg-s-900 { color: $s-900; }
+
+/* Positions */
+.pos-absolute { position: absolute; }
+.pos-fixed { position: fixed; }
 
 /* Text Classes */
 .text-black { color: $text-black; }

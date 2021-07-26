@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="default-transition text-high bg" :class="{ dark: dark }">
+  <div id="app" class="default-transition bg" :class="{ dark: dark }">
     <nav
       class="
         default-transition
@@ -14,13 +14,64 @@
       <button
         @click="toggleMode"
         id="toggle-mode"
-        class="dp-01-shadow bg-s-400 text-white text-primary-if-dark"
+        class="
+          default-transition
+          dp-01-shadow
+          bg-s-400
+          text-white-high text-primary-if-dark
+          tr-button-scale
+        "
       >
         <span class="material-icons">
           {{ dark ? 'dark_mode' : 'light_mode' }}
         </span>
       </button>
     </nav>
+
+    <section id="content" class="default-transition text-high">
+      <h1>test</h1>
+      <img src="https://github.com/acedron.png" height="1024" class="dp-01" />
+    </section>
+
+    <transition name="fade">
+      <div
+        id="cookie-notice"
+        v-if="dismissedCookieNotice === false"
+        class="dp-04-shadow bg-p-500 text-white-high"
+      >
+        <h4 class="text-white-high">
+          This site uses cookies and/or HTML5 local storage for additional
+          functionality such as saving options. By clicking "Allow", you agree
+          to the storing of cookies or data on your device to enhance site
+          navigation and provide more functionality. No data will be stored
+          until you allow.
+        </h4>
+        <button
+          @click="cookieNoticeDismiss($event, false)"
+          class="
+            default-transition
+            dp-01-shadow
+            bg-s-600
+            text-white-high text-primary-if-dark
+            tr-button-scale
+          "
+        >
+          Deny
+        </button>
+        <button
+          @click="cookieNoticeDismiss($event, true)"
+          class="
+            default-transition
+            dp-01-shadow
+            bg-s-600
+            text-white-high text-primary-if-dark
+            tr-button-scale
+          "
+        >
+          Allow
+        </button>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -30,21 +81,36 @@ import { Vue } from 'vue-class-component';
 export default class App extends Vue {
   dark = false;
   navFixed = false;
+  dismissedCookieNotice = false;
 
-  created(): void {
+  mounted(): void {
     window.addEventListener('scroll', this.handleScroll);
+
+    if (localStorage.dismissedCookieNotice)
+      this.dismissedCookieNotice =
+        localStorage.dismissedCookieNotice === 'true';
+
+    if (localStorage.dark) this.dark = localStorage.dark === 'true';
   }
 
-  destroyed(): void {
+  unmounted(): void {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
   handleScroll(): void {
-    this.navFixed = window.scrollY > 15;
+    this.navFixed = window.scrollY > 48;
   }
 
   toggleMode(): void {
     this.dark = !this.dark;
+    if (localStorage.acceptedCookies && localStorage.acceptedCookies === 'true')
+      localStorage.dark = this.dark;
+  }
+
+  cookieNoticeDismiss(_event: Event, accepted: boolean): void {
+    localStorage.dismissedCookieNotice = true;
+    localStorage.acceptedCookies = accepted;
+    this.dismissedCookieNotice = true;
   }
 }
 </script>
@@ -104,6 +170,34 @@ export default class App extends Vue {
 }
 
 /*
+ * Cookie Notice
+ */
+
+#cookie-notice {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  bottom: 0;
+  width: 100vw;
+  height: 48px;
+  z-index: 70;
+}
+
+#cookie-notice h4 {
+  margin-left: 16px;
+  overflow-y: auto;
+}
+
+#cookie-notice button {
+  border: none;
+  margin-right: 16px;
+  width: 128px;
+  height: 32px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/*
  * Content
  */
 #content {
@@ -113,5 +207,19 @@ export default class App extends Vue {
   margin-top: 60px;
   width: 100vw;
   text-align: center;
+  overflow-x: hidden;
+}
+
+/*
+ * Vue Transitions
+ */
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.15s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
