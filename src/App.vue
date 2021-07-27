@@ -30,7 +30,12 @@
 
     <section id="content" class="default-transition text-high">
       <h1>test</h1>
-      <img src="https://github.com/acedron.png" height="1024" class="dp-01" />
+      <img
+        src="https://github.com/acedron.png"
+        height="1024"
+        class="dp-01-shadow"
+        alt=""
+      />
     </section>
 
     <transition name="fade">
@@ -181,11 +186,16 @@ export default class App extends Vue {
   width: 100vw;
   height: 48px;
   z-index: 70;
+  overflow: hidden;
 }
 
 #cookie-notice h4 {
   margin-left: 16px;
+  height: 100%;
   overflow-y: auto;
+  white-space: normal;
+  border-radius: 4px;
+  border: none;
 }
 
 #cookie-notice button {
